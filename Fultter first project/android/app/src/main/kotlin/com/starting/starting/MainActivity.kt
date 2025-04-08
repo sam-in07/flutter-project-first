@@ -1,4 +1,4 @@
-package com.samin.fultter_first_project
+package com.starting.starting
 
 import io.flutter.embedding.android.FlutterActivity
 
