@@ -37,14 +37,47 @@ class MyApp extends StatelessWidget  {
 class HomeActivity extends StatelessWidget{
   const HomeActivity({super.key});
 
+  MySncakbar(message , context) {
+
+
+     return   ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message))
+    );
+
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     //throw UnimplementedErro     r();
     //Scaffold vitore appbar body agula thakbe
     return Scaffold(
-      appBar: AppBar(title: Text("My App ------------  "),),
-      body: Text("Hellow"),
+      appBar: AppBar(
+        title: Text("My App ------------  "),
+         titleSpacing: 0,
+        centerTitle: true,// eta na dile eta side asi jabe apppbar
+        toolbarHeight: 60,
+        toolbarOpacity: 1,
+        elevation: 0,
+        backgroundColor: Colors.green,
+         // action is a kind of array
+        actions: [
+          //onPressed mane icon upor click korle ki show korbe oita and icon diya Iconbutton ar kon ICon show korbe oita
+          IconButton(onPressed: (){MySncakbar("Contact korrooo ", context);}, icon: Icon(Icons.import_contacts))  ,
+          IconButton(onPressed: (){MySncakbar("senti khaow", context);}, icon: Icon(Icons.insert_emoticon_sharp)),
+          IconButton(onPressed: (){MySncakbar("search korba ", context);}, icon: Icon(Icons.search)),
+          IconButton(onPressed: (){MySncakbar("hello!!", context);}, icon: Icon(Icons.call)),
+          IconButton(onPressed: (){MySncakbar("meramot kaje niyojito", context);}, icon: Icon(Icons.settings)),
+
+
+        ],
+
+      ),
+
+
+      //body: Text("Hellow"),
       // drawer: () ,
       // endDrawer: (),
       // bottomNavigationBar: (),
