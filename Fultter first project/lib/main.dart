@@ -75,7 +75,14 @@ class HomeActivity extends StatelessWidget{
         ],
 
       ),
-
+      floatingActionButton: FloatingActionButton(
+        elevation: 10 ,   //koto tuk elevate hoi theka uporer dike oita                                              1st property
+        child :  Icon(Icons.add_a_photo),    // child Property nisi cuz ar vitre akta icon dibooo                     2nd property
+        backgroundColor: Colors.red,
+        onPressed: () {                    // floating action button a ki hobe oita bole deya                          3rd property
+          MySncakbar("chobi up dao  ", context);
+        },
+      ) ,
 
       //body: Text("Hellow"),
       // drawer: () ,
