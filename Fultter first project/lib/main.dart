@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget  {
 class HomeActivity extends StatelessWidget{
   const HomeActivity({super.key});
 
-  MySncakbar(message , context) {
+  MySncakbar(message , context) {        // MySncakbar eta hocche toast message
 
 
      return   ScaffoldMessenger.of(context).showSnackBar(
@@ -89,7 +89,31 @@ class HomeActivity extends StatelessWidget{
       // endDrawer: (),
       // bottomNavigationBar: (),
       // floatingActionButton: (),
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 0, // eta diya kon button ta active thakbe na thakbe oita set korse disi
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home) , label: 'homeee'  )  ,  // bottomnavigation bar modhe bottom nevigation bar ar item set korrtesi
+            BottomNavigationBarItem(icon: Icon(Icons.add_call)  , label: 'add cal' )   ,
+            BottomNavigationBarItem(icon: Icon(Icons.account_box)  , label: 'profile button'  )  ,
 
+          ] ,
+          // akahne 0 index a home icon 1 index a call 2 no a profile
+        onTap: (int index)   {
+            // on tap diya masg show korar jonnon
+          if(index==0) {
+            MySncakbar("Im aa home button ", context);
+          }
+          if(index==1) {
+            MySncakbar("Im aa call ", context);
+          }
+          if(index==2) {
+            MySncakbar("Im aa profile button ", context);
+          }
+
+
+        },
+
+      ),
 
     );
   }
