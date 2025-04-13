@@ -109,12 +109,26 @@ class HomeActivity extends StatelessWidget{
           if(index==2) {
             MySncakbar("Im aa profile button ", context);
           }
+           // nevegation drawer a 2 ta part akta header part orek ta list part
 
 
         },
 
       ),
-
+      // nevegation drawer a 2 ta part akta header part orek ta list part
+      drawer: Drawer(
+        child: ListView(
+          //onk gula item ...agukllake bolse children
+          children: [
+            // eta 2 tper
+            DrawerHeader(child: Text('samnnnn')) ,
+            ListTile(title: Text("home"),) ,
+            ListTile(title: Text("contact"),) ,
+            ListTile(title: Text("email"),) ,
+            ListTile(title: Text("chobi dao"),) ,
+          ],
+        ),
+      ),
     );
   }
 }
