@@ -114,16 +114,21 @@ class HomeActivity extends StatelessWidget{
         },
 
       ),
-      // nevegation drawer a 2 ta part akta header part orek ta list part
-      drawer: Drawer(
+      // nevegation drawer a 2 ta part akta header part orek ta list
+      // drawer kete   endDrawer dile left side theka ase eta swap  ase
+     // drawer: Drawer(
+      endDrawer: Drawer(
         child: ListView(
           //onk gula item ...agukllake bolse children
           children: [ // eta 2 tper  // leadinf propertier vitro icon set kortesi
             DrawerHeader(
+              padding: EdgeInsets.all(0), // padding ta sore  jabe
                 child: UserAccountsDrawerHeader (
                     decoration: BoxDecoration(color: Colors.lightBlue),
-                    accountName:Acccccc,
-                    accountEmail:  ,
+                    accountName: Text("samin ahmed " , style: TextStyle(color: Colors.black)),
+                    accountEmail:  Text("samin.ahmed@gamil.com" , style: TextStyle(color: Colors.black) ) ,
+                    currentAccountPicture: Image.network("https://s6.imgcdn.dev/Yw0sFM.jpg"),
+                    onDetailsPressed: () {MySncakbar("this is my profile ", context);},
                 )
 
             ) ,
@@ -143,6 +148,58 @@ class HomeActivity extends StatelessWidget{
               onTap: () {
                 MySncakbar("contact", context);
                 },  ) ,
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("profile"),
+              onTap: () {
+                MySncakbar("profile ", context);
+              },  )  ,
+            ListTile(
+              leading: Icon(Icons.email),
+              title: Text("email"),
+              onTap: () {
+                MySncakbar("email ", context);
+              },  )  ,
+            ListTile(
+              leading: Icon(Icons.add_a_photo),
+              title: Text("chobi dao"),
+              onTap: () {
+                MySncakbar("chobi ", context);
+              },  )  ,
+          ],
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          //onk gula item ...agukllake bolse children
+          children: [ // eta 2 tper  // leadinf propertier vitro icon set kortesi
+            DrawerHeader(
+                padding: EdgeInsets.all(0), // padding ta sore  jabe
+                child: UserAccountsDrawerHeader (
+                  decoration: BoxDecoration(color: Colors.lightBlue),
+                  accountName: Text("samin ahmed " , style: TextStyle(color: Colors.black)),
+                  accountEmail:  Text("samin.ahmed@gamil.com" , style: TextStyle(color: Colors.black) ) ,
+                  currentAccountPicture: Image.network("https://s6.imgcdn.dev/Yw0sFM.jpg"),
+                  onDetailsPressed: () {MySncakbar("this is my profile ", context);},
+                )
+
+            ) ,
+            // ListTile(title: Text("home"),) ,
+            // ListTile(title: Text("contact"),) ,
+            // ListTile(title: Text("email"),) ,
+            // ListTile(title: Text("chobi dao"),) ,
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("home"),
+              onTap: () {
+                MySncakbar("home ", context);
+              },  ) ,
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text("contact"),
+              onTap: () {
+                MySncakbar("contact", context);
+              },  ) ,
             ListTile(
               leading: Icon(Icons.person),
               title: Text("profile"),
