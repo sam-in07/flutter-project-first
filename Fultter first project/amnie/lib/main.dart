@@ -221,6 +221,25 @@ class HomeActivity extends StatelessWidget{
           ],
         ),
       ),
+      // body: Center(
+      //  child:  Text("Samin vai aseee"),
+      //
+      // )
+      body: Container(
+        height: 250,
+        width: 250,
+        alignment:Alignment.topCenter ,//akahne on gula property aseee
+        margin: EdgeInsets.fromLTRB(80, 90, 100, 80),// edgeInsit.all(30)
+        padding: EdgeInsets.all(30),
+        decoration: BoxDecoration(
+          color: Colors.lightBlue,
+          border: Border.all(color: Colors.black, width: 2)
+        ),
+        child: Image.network("https://s6.imgcdn.dev/YwRy5M.jpg")
+        //Text("it me samin"),
+        
+      ),
+      
     );
   }
 }
