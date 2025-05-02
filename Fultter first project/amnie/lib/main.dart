@@ -46,6 +46,32 @@ class HomeActivity extends StatelessWidget{
 
   }
 
+  Mylartdiglouge(context) {        // context parameter pass korabooo
+    return showDialog(  //showDialog widgets
+        context: context,
+        builder: (BuildContext context ) {         // doalouge tka ebuild korbe
+          return Expanded(
+              child: AlertDialog(
+                title: Text("ALretr !"),
+                content: Text("Do you want me to laerst "),
+                actions: [      // action buttion yes or no typer
+                  TextButton(onPressed: (){
+                    MySncakbar("Delete success", context);
+                  }, child: Text("YES")),
+                  TextButton(onPressed: (){Navigator.of(context);}, child: Text("NO")),
+                  // no te click klorole dismiss mkore dibo
+                ],
+              )
+          );
+        }
+
+    );
+
+
+
+
+  }
+
 
 
   @override
@@ -53,6 +79,13 @@ class HomeActivity extends StatelessWidget{
     // TODO: implement build
     //throw UnimplementedErro     r();
     //Scaffold vitore appbar body agula thakbe
+    final  ButtonStyle buttonStyle=ElevatedButton.styleFrom(
+        padding: EdgeInsets.all(25) ,
+        backgroundColor: Colors.green ,
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text("My App ------------  "),
@@ -225,21 +258,40 @@ class HomeActivity extends StatelessWidget{
       //  child:  Text("Samin vai aseee"),
       //
       // )
-      body: Container(
-        height: 250,
-        width: 250,
-        alignment:Alignment.topCenter ,//akahne on gula property aseee
-        margin: EdgeInsets.fromLTRB(80, 90, 100, 80),// edgeInsit.all(30)
-        padding: EdgeInsets.all(30),
-        decoration: BoxDecoration(
-          color: Colors.lightBlue,
-          border: Border.all(color: Colors.black, width: 2)
-        ),
-        child: Image.network("https://s6.imgcdn.dev/YwRy5M.jpg")
-        //Text("it me samin"),
-        
-      ),
-      
+
+
+     // body: Row(
+     //   mainAxisAlignment: MainAxisAlignment.spaceEvenly, // spaceEvenly mane space avabe sjow korbe etar aro property ase
+     //   children: [
+     //     // Container(height: 100, width: 100, child: Image.network("https://s6.imgcdn.dev/YwRy5M.jpg"),),
+     //     // Container(height: 100, width: 100, child: Image.network("https://s6.imgcdn.dev/YwRy5M.jpg"),),
+     //     // Container(height: 100, width: 100, child: Image.network("https://s6.imgcdn.dev/YwRy5M.jpg"),),
+     //     TextButton(onPressed: (){MySncakbar("I,m text buttton ", context);}, child: Text("Hwelooow buttton"))  ,
+     //     ElevatedButton(onPressed: (){MySncakbar("I,m text buttton ", context);}, child: Text("Elvate buttton") , style: buttonStyle,)  ,
+     //     OutlinedButton(onPressed: (){MySncakbar("I,m text buttton ", context);}, child: Text("Outline buttton"))  ,
+     //     // onPressed mane icon upor click korle ki liokha  show korbe oita and icon diya Iconbutton
+     //     // ar kon ICon show korbe oita and Child diya TEXT ai show button name ta
+     //   ]
+     // ),
+      // Container(
+      //   height: 250,
+      //   width: 250,
+      //   alignment:Alignment.topCenter ,//akahne on gula property aseee
+      //   margin: EdgeInsets.fromLTRB(80, 90, 100, 80),// edgeInsit.all(30)
+      //   padding: EdgeInsets.all(30),
+      //   decoration: BoxDecoration(
+      //     color: Colors.lightBlue,
+      //     border: Border.all(color: Colors.black, width: 2)
+      //   ),
+      //   child: Image.network("https://s6.imgcdn.dev/YwRy5M.jpg")
+      //   //Text("it me samin"),
+      //
+      // ),
+    body: Center(
+      child: ElevatedButton(onPressed: (){Mylartdiglouge(context);}, child: Text("Click me ")),
+    ),
+
+
     );
   }
 }
