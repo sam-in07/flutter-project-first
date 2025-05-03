@@ -80,11 +80,13 @@ class HomeActivity extends StatelessWidget{
     //throw UnimplementedErro     r();
     //Scaffold vitore appbar body agula thakbe
     final  ButtonStyle buttonStyle=ElevatedButton.styleFrom(
-        padding: EdgeInsets.all(25) ,
-        backgroundColor: Colors.green ,
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+        // padding: EdgeInsets.all(25) ,
+        // backgroundColor: Colors.green ,
+        // foregroundColor: Colors.white,
+        minimumSize: Size(double.infinity, 60),
+       // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
     );
+
 
     return Scaffold(
       appBar: AppBar(
@@ -287,10 +289,18 @@ class HomeActivity extends StatelessWidget{
       //   //Text("it me samin"),
       //
       // ),
-    body: Center(
-      child: ElevatedButton(onPressed: (){Mylartdiglouge(context);}, child: Text("Click me ")),
-    ),
-
+    // body: Center(
+    //   child: ElevatedButton(onPressed: (){Mylartdiglouge(context);}, child: Text("Click me ")),
+    // ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(padding: EdgeInsets.all(20), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: 'first name' ),)) ,
+          Padding(padding: EdgeInsets.all(20), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: 'last name' ),)) ,
+          Padding(padding: EdgeInsets.all(20), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: 'Email' ),)) ,
+          Padding(padding: EdgeInsets.all(20), child: ElevatedButton(onPressed: (){}, child: Text('submitttoo') , style:buttonStyle,),) ,
+        ],
+      ),
 
     );
   }
