@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 
 main () {
-  runApp(const MyApp())   ;// application
+  runApp( MyApp())   ;// application
 }
 class MyApp extends StatelessWidget  {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   // const constractor baniete hobe
   @override
@@ -35,8 +35,18 @@ class MyApp extends StatelessWidget  {
 }
 
 class HomeActivity extends StatelessWidget{
-  const HomeActivity({super.key});
-
+   HomeActivity({super.key});
+  var MyItems = [
+    {"img" : "https://s6.imgcdn.dev/YwRy5M.jpg" , "title" : "Rabbil"},
+    {"img" : "https://s6.imgcdn.dev/YwRy5M.jpg" , "title" : "Samin"}   ,
+    {"img" : "https://s6.imgcdn.dev/YwRy5M.jpg" , "title" : "Jamil"},
+    {"img" : "https://s6.imgcdn.dev/YwRy5M.jpg" , "title" : "maruf"},
+    {"img" : "https://s6.imgcdn.dev/YwRy5M.jpg" , "title" : "jubayer"},
+    {"img" : "https://s6.imgcdn.dev/YwRy5M.jpg" , "title" : "pessi"}   ,
+    {"img" : "https://s6.imgcdn.dev/YwRy5M.jpg" , "title" : "CR7"}   ,
+    {"img" : "https://s6.imgcdn.dev/YwRy5M.jpg" , "title" : "neyam"},
+    {"img" : "https://s6.imgcdn.dev/YwRy5M.jpg" , "title" : "heda"}   ,
+  ];
   MySncakbar(message , context) {        // MySncakbar eta hocche toast message
 
 
@@ -66,6 +76,7 @@ class HomeActivity extends StatelessWidget{
         }
 
     );
+
 
 
 
@@ -292,16 +303,31 @@ class HomeActivity extends StatelessWidget{
     // body: Center(
     //   child: ElevatedButton(onPressed: (){Mylartdiglouge(context);}, child: Text("Click me ")),
     // ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(padding: EdgeInsets.all(20), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: 'first name' ),)) ,
-          Padding(padding: EdgeInsets.all(20), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: 'last name' ),)) ,
-          Padding(padding: EdgeInsets.all(20), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: 'Email' ),)) ,
-          Padding(padding: EdgeInsets.all(20), child: ElevatedButton(onPressed: (){}, child: Text('submitttoo') , style:buttonStyle,),) ,
-        ],
-      ),
+    //   body: Column(
+    //     mainAxisAlignment: MainAxisAlignment.start,
+    //     children: [
+    //       Padding(padding: EdgeInsets.all(20), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: 'first name' ),)) ,
+    //       Padding(padding: EdgeInsets.all(20), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: 'last name' ),)) ,
+    //       Padding(padding: EdgeInsets.all(20), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: 'Email' ),)) ,
+    //       Padding(padding: EdgeInsets.all(20), child: ElevatedButton(onPressed: (){}, child: Text('submitttoo') , style:buttonStyle,),) ,
+    //     ],
+    //   ),
+      body: ListView.builder(
+          itemCount:  MyItems.length,  // list wiew bithore kotto gula item sow korachi
+          itemBuilder: (context, index) {
+           return GestureDetector(
+             onTap: (){MySncakbar(context,MyItems[index]['title'],);},
+             child: Container(
+               margin: EdgeInsets.all(10),
+               width: double.infinity,
+               height: 100,
+               child: Image.network(MyItems[index]['img']!, fit: BoxFit.fill,),    // ! jodi image na thake
+               
+             ),
+           );
+          },
 
+      ),
     );
   }
 }
