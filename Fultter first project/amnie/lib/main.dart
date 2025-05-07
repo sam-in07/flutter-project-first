@@ -312,15 +312,22 @@ class HomeActivity extends StatelessWidget{
     //       Padding(padding: EdgeInsets.all(20), child: ElevatedButton(onPressed: (){}, child: Text('submitttoo') , style:buttonStyle,),) ,
     //     ],
     //   ),
-      body: ListView.builder(
+      body: GridView.builder(
+          gridDelegate : SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3 ,
+              crossAxisSpacing: 0,
+            childAspectRatio: 1.2 ,
+          ),   //etar mane kon axis a kemon hobe ar koita colum thakbe habi jabi aee
+
           itemCount:  MyItems.length,  // list wiew bithore kotto gula item sow korachi
           itemBuilder: (context, index) {
            return GestureDetector(
-             onTap: (){MySncakbar(context,MyItems[index]['title'],);},
+            // onTap: (){MySncakbar(context,MyItems[index]['title'],);},
+             onDoubleTap: (){MySncakbar(context,MyItems[index]['title'],);},
              child: Container(
                margin: EdgeInsets.all(10),
                width: double.infinity,
-               height: 100,
+               height: 200,
                child: Image.network(MyItems[index]['img']!, fit: BoxFit.fill,),    // ! jodi image na thake
                
              ),
