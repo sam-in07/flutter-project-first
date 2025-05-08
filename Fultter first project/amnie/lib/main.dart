@@ -1,8 +1,16 @@
 
+import 'package:amnie/Fragment/AlarmFragment.dart';
+import 'package:amnie/Fragment/BalanceFragment.dart';
+import 'package:amnie/Fragment/ContactFrgament.dart';
+import 'package:amnie/Fragment/EmailFragment.dart';
+import 'package:amnie/Fragment/HomeFragment.dart';
+import 'package:amnie/Fragment/PersonFrgament.dart';
+import 'package:amnie/Fragment/SearchFragment.dart';
+import 'package:amnie/Fragment/SettingFragment.dart';
 import 'package:flutter/material.dart';
 
 main () {
-  runApp( MyApp())   ;// application
+  runApp(  MyApp())   ;// application
 }
 class MyApp extends StatelessWidget  {
   MyApp({super.key});
@@ -98,7 +106,46 @@ class HomeActivity extends StatelessWidget{
        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
     );
 
+    return DefaultTabController(
+        length: 8 , // eta hocche tab koita thakbe oita ke mean korse
+        child: Scaffold(
+           appBar: AppBar(
+             title: Text("My App ------------  "),
+             bottom: TabBar(
+                  isScrollable: true,  // eta dile lorbe arkiiii sunxor
+                 tabs: [
+                   Tab(icon: Icon(Icons.home),text: 'home',) ,
+                   Tab(icon: Icon(Icons.search),text: 'search',) ,
+                   Tab(icon: Icon(Icons.settings),text: 'settings',) ,
+                   Tab(icon: Icon(Icons.email),text: 'email',) ,
+                   Tab(icon: Icon(Icons.contact_mail),text: 'contact',) ,
+                   Tab(icon: Icon(Icons.person),text: 'person ',) ,
+                   Tab(icon: Icon(Icons.access_alarm),text: 'alarm', ) ,
+                   Tab(icon: Icon(Icons.account_balance),text: 'balance',) ,
+                 ]                    /// tab gula diboooo
+             ),
+           ),
+           // akhon 8 ta tab jonno 8 ta screen banabooooooooooooooooo  oitar jonno 'body'
 
+          body: TabBarView(
+            children: [
+             // Text
+              //8 tar jonno 8 ta fragamnt banano cuz screen issue
+            HomeFragment(),
+             SettingFragment(),
+             SearchFragment(),
+             EmailFragment(),
+             ContactFrgament(),
+             PersonFrgament(),
+             AlarmFragment(),
+             BalanceFragment(),
+            ],
+          ),
+
+        )
+    ) ;
+
+ /*
     return Scaffold(
       appBar: AppBar(
         title: Text("My App ------------  "),
@@ -329,13 +376,13 @@ class HomeActivity extends StatelessWidget{
                width: double.infinity,
                height: 200,
                child: Image.network(MyItems[index]['img']!, fit: BoxFit.fill,),    // ! jodi image na thake
-               
+
              ),
            );
           },
 
       ),
-    );
+    );  */
   }
 }
 
